@@ -39,6 +39,24 @@ body {
   border-radius: 20px;
   border:2px solid blue !important;
 }
+#registers {
+  margin-left: 68% !important;
+  float: right;
+  padding: 5px 15px 5px 15px;
+  text-decoration: none;
+  color: white;
+  font-size: 1.2em;
+  margin: auto 15px;
+  font-weight: 400;
+  width: max-content;
+  border: 2px solid blue !important;
+  border-radius: 20px;
+}
+#registers:hover {
+  background-color: blue;
+  border-radius: 20px;
+  border:2px solid blue !important;
+}
 #logout {
   outline: none;
   background-color: #f74b3f;
@@ -77,7 +95,7 @@ body {
 .leftComponent {
   width: 48vw;
   height: 450px;
-  margin: 10px;
+  margin: 0px;
 }
 .leftComponent img {
   height: 100%;
@@ -87,7 +105,7 @@ body {
 .rightComponent {
   width: 45vw;
   height: 450px;
-  margin: 10px;
+  margin: 0px;
 }
 
 .rightComponent h3 {
@@ -133,7 +151,9 @@ textarea:focus {
 }
 
 @media (max-width: 572px) {
- 
+  .staff {
+    margin-top: 0px !important;
+}
   body {
     width: 100vw;
     height: 100vh;
@@ -168,5 +188,9 @@ input[type=radio], select {
   margin-bottom: 21px !important;
   margin-left: 0px !important;
   margin-right: 0px;
+}
+#registers{
+  margin-left: 8% !important;
+ 
 }
 }

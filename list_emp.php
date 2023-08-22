@@ -57,8 +57,11 @@ else{
             <button id="logout" onclick="window.location.href='logout.php';">Logout</button> </div> -->
 
             <ul class="nav justify-content-end">
-            <li class="nav-item">
+            <!-- <li class="nav-item">
                 <a class="nav-link" href="myhistory.php" style="color:white;">My Leave History</a>
+            </li> -->
+            <li class="nav-item">
+                <a class="nav-link" href="admin.php" style="color:white;">Admin plane</a>
             </li>
             <li class="nav-item">
             <a class="nav-link" href="list_emp.php" style="color:white;">View Admin <span class="badge badge-pill" style="background-color:#2196f3;"></span></a>

@@ -1,11 +1,13 @@
 <?php
 require_once("DBConnection.php");
+
 session_start();
 global $row;
 if(!isset($_SESSION["sess_user"])){
   header("Location: index.php");
 }
 else{
+  $username = $_SESSION["sess_user"];
 ?>
 
 <!DOCTYPE html>
@@ -84,14 +86,14 @@ else{
             <li class="nav-item">
                 <a class="nav-link" href="myhistory.php" style="color:white;">My Leave History</a>
             </li>
-            <li class="nav-item">
+            <!-- <li class="nav-item">
             <a class="nav-link" href="list_emp.php" style="color:white;">View Admin <span class="badge badge-pill" style="background-color:#2196f3;"></span></a>
             </li>
             
             <li class="nav-item">
                 <a class="nav-link" href="leave_history.php" style="color:white;">View Leave History</a>
             </li>
-            <li class="nav-item">
+            <li class="nav-item"> -->
             <button id="logout" onclick="window.location.href='logout.php';">Logout</button>
             </li>
             </ul>
@@ -118,29 +120,105 @@ else{
           </thead>
           <tbody>
             <!-- loading all leave applications of the user -->
-            <?php
-                  $leaves = mysqli_query($conn,"SELECT * FROM leavefor");
-                  if($leaves){
-                    $numrow = mysqli_num_rows($leaves);
-                    if($numrow!=0){
-                      $cnt=1;
-                      while($row1 = mysqli_fetch_array($leaves)){
-                        echo "<tr>
-                                <td>$cnt</td>
-                                <td>{$row1['username']}</td>
-                                <td>{$row1['absence']}</td>
-                                <td>{$row1['fromdate']}</td>
-                                <td>{$row1['todate']}</td>
-                                <td><b>{$row1['status']}</b></td>
-                              </tr>";
-                     $cnt++; }
-                    } else {
-                      echo"<tr class='text-center'><td colspan='12'><b>YOU DON'T HAVE ANY LEAVE HISTORY! PLEASE APPLY TO VIEW YOUR STATUS HERE!</b></td></tr>";
-                    }
-                  }
-                  else{
-                    echo "Query Error : " . "SELECT descr,status FROM leaves WHERE eid='".$_SESSION['sess_eid']."'" . "<br>" . mysqli_error($conn);;
-                  }
+            <?php  
+ 
+$recordsPerPage = 10; // Number of records to display per page
+$page = isset($_GET['page']) ? $_GET['page'] : 1; // Get the current page number from the query parameter
+$offset = ($page - 1) * $recordsPerPage; // Calculate the offset for SQL query
+
+$userQuery1 = mysqli_query($conn, "SELECT * FROM leavefor WHERE username='$username' LIMIT $offset, $recordsPerPage");
+
+if ($userQuery1) {
+  if (mysqli_num_rows($userQuery1) > 0) {
+    $cnt = $offset+ 1;
+    while ($row1 = mysqli_fetch_array($userQuery1)) {
+      echo "<tr>
+              <td>$cnt</td>
+              <td>{$row1['username']}</td>
+              <td>{$row1['absence']}</td>
+              <td>{$row1['fromdate']}</td>
+              <td>{$row1['todate']}</td>
+              <td><b>{$row1['status']}</b></td>
+            </tr>";
+      $cnt++;
+    }
+  } else {
+    echo "<tr class='text-center'><td colspan='6'><b>YOU DON'T HAVE ANY LEAVE HISTORY! PLEASE APPLY TO VIEW YOUR STATUS HERE!</b></td></tr>";
+  }
+} else {
+  echo "Query Error: " . mysqli_error($conn);
+}
+
+            //  $userQuery = mysqli_query($conn, "SELECT * FROM signup WHERE username='$username'");
+            //  $userQuery1 = mysqli_query($conn, "SELECT * FROM leavefor WHERE username='$username'");
+           
+            // if ($userQuery == $userQuery1)  {
+       
+            //     if (mysqli_num_rows($userQuery1) === 1) {
+                    
+            //         $userRow = mysqli_fetch_assoc($userQuery1);
+            //         $userId = $userRow['id']; 
+            //         $leaves = mysqli_query($conn, "SELECT * FROM leavefor WHERE id='$userId'");
+                   
+            //         echo "<tbody>";
+            //         if ($leaves) {
+            //             $numrow = mysqli_num_rows($leaves);
+            //             if ($numrow != 0) {
+            //                 $cnt = 1;
+            //                 while ($row1 = mysqli_fetch_array($leaves)) {
+            //                     echo "<tr>
+            //                             <td>$cnt</td>
+            //                             <td>{$row1['username']}</td>
+            //                             <td>{$row1['absence']}</td>
+            //                             <td>{$row1['fromdate']}</td>
+            //                             <td>{$row1['todate']}</td>
+            //                             <td><b>{$row1['status']}</b></td>
+            //                           </tr>";
+            //                     $cnt++;
+            //                 }
+            //             } else {
+            //                 echo "<tr class='text-center'><td colspan='12'><b>YOU DON'T HAVE ANY LEAVE HISTORY! PLEASE APPLY TO VIEW YOUR STATUS HERE!</b></td></tr>";
+            //             }
+            //         } else {
+            //             echo "Query Error: " . mysqli_error($conn);
+            //         }
+            //         echo "</tbody>";
+            
+                   
+            //         mysqli_close($conn);
+            //     } else {
+               
+            //         echo "Invalid credentials.";
+            //     }
+            // } else {
+                
+            //     header("Location: login.php"); 
+            //     exit();
+            // }
+      
+            
+                  // $leaves = mysqli_query($conn,"SELECT * FROM leavefor");
+                  // if($leaves){
+                  //   $numrow = mysqli_num_rows($leaves);
+                  //   if($numrow!=0){
+                  //     $cnt=1;
+                  //     while($row1 = mysqli_fetch_array($leaves)){
+                  //       echo "<tr>
+                  //               <td>$cnt</td>
+                  //               <td>{$row1['username']}</td>
+                  //               <td>{$row1['absence']}</td>
+                  //               <td>{$row1['fromdate']}</td>
+                  //               <td>{$row1['todate']}</td>
+                  //               <td><b>{$row1['status']}</b></td>
+                  //             </tr>";
+                  //    $cnt++; }
+                  //   } else {
+                  //     echo"<tr class='text-center'><td colspan='12'><b>YOU DON'T HAVE ANY LEAVE HISTORY! PLEASE APPLY TO VIEW YOUR STATUS HERE!</b></td></tr>";
+                  //   }
+                  // }
+                  // else{
+                  //   echo "Query Error : " . "SELECT descr,status FROM leaves WHERE eid='".$_SESSION['sess_eid']."'" . "<br>" . mysqli_error($conn);;
+                  // }
               ?>
           </tbody>
       </table>

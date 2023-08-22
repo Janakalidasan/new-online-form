@@ -1,15 +1,15 @@
 <?php 
 require_once("DBConnection.php"); 
-include("functions.php");
+include("function1.php");
 session_start();
 ?>
 
 <?php
 
  	if (isset($_POST['login'])) {
-	 	if (!empty($_POST['username']) && !empty($_POST['password'])) {
-	 		$username = mysqli_real_escape_string($conn,$_POST['username']);
-	 		$pass = mysqli_real_escape_string($conn,$_POST['password']);
+	 	if (!empty($_POST['usename']) && !empty($_POST['pasword'])) {
+	 		$username = mysqli_real_escape_string($conn,$_POST['usename']);
+	 		$pass = mysqli_real_escape_string($conn,$_POST['pasword']);
 
             $login = login($username,$pass,$conn);          
 	 	}
@@ -50,13 +50,6 @@ session_start();
         .log{
             font-weight:900;
         }
-        .staff{
-            margin-top:-75px ;
-        }
-        a {
-    color: #fff;
-    text-decoration: none;
-}
     </style>
 </head>
     
@@ -66,9 +59,9 @@ session_start();
     <!-- header -->
     <nav class="navbar header-nav navbar-expand-lg navbar-light bg-light">
         <div class="container-fluid">
-            <a class="navbar-brand" href="#">Online Leave Application</a>
-            
-            <!-- <a id="register" href="signup.php">Sign Up</a> -->
+            <a class="navbar-brand" href="#">Student Login</a>
+            <a id="registers" href="index.php">Home</a>
+            <a id="register" href="staff-signup.php">Sign Up</a>
         </div>
     </nav>
     <!-- header ends -->
@@ -82,47 +75,39 @@ session_start();
             <!-- container and row divs for responsive -->
 
             <!-- leftComponent -->
-            <div class="leftComponent col-md-6 col-lg-6 col-sm-12">
+            <div class="leftComponent col-md-5">
                 <img src="img/new-1.jpg" alt="Leave Image" class="img-fluid">
-                <a href="../Online/stafflog.php"><button type="button" class="btn btn-primary staff">Staff Login</button></a>
-            </div>
-
-
-
-            <div class="leftComponent col-md-6 col-lg-6 col-sm-12">
-                <img src="img/students.png" alt="Leave Image" class="img-fluid">
-                <a href="../Online/student-login.php"><button type="button" class="btn btn-primary staff">Student Login</button></a>
             </div>
             <!-- leftComponent ends -->
 
 
             <!-- rightComponent -->
-            <!-- <div class="rightComponent col-md-5">
+            <div class="rightComponent col-md-5">
 
                 <h3> <b class="log">Login</b> </h3>
                 <hr>
                 <form method="POST" class="loginForm">
                 <div class="alert alert-danger" id="invalidMsg">
                     <?php      
-                        // if(isset($_POST['login'])){
-                        //     if($login == false)
-                        //         echo "<script type='text/javascript'>document.getElementById('invalidMsg').style.display = 'block';</script>";
-                        //         echo "Invalid Username or Password";
-                        // }
-                        // else
-                        //     echo "";
+                        if(isset($_POST['login'])){
+                            if($login == false)
+                                echo "<script type='text/javascript'>document.getElementById('invalidMsg').style.display = 'block';</script>";
+                                echo "Invalid Username or Password";
+                        }
+                        else
+                            echo "";
                     ?>
                     </div>
                     <div class="mb-3">
-                        <input class="form-control" type="text" id="username" name="username" placeholder="Enter Username" required>
+                        <input class="form-control" type="text" id="username" name="usename" placeholder="Enter Username" required>
                     </div>
                     <div class="mb-3">
-                        <input class="form-control" type="password" id="password" name="password" placeholder="Enter Password"
+                        <input class="form-control" type="password" id="password" name="pasword" placeholder="Enter Password"
                             required>
                     </div>
                     <input type="submit" class="btn  cls" name="login" value="Log In">
                 </form>
-            </div> -->
+            </div>
             <!-- rightComponent ends -->
         </div>
     </div>

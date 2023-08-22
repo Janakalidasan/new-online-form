@@ -1,6 +1,6 @@
 <?php 
 require_once("DBConnection.php");
-include("functions.php");
+include("function1.php");
 session_start();
 ?>
 
@@ -111,30 +111,30 @@ session_start();
 
   if(isset($_POST['submit'])){
 
-    if(empty($_POST['fullname'])){
+    if(empty($_POST['fulname'])){
       $fullnameErr = "Please Enter Fullname";
       $validate = false;
     }
     else{
-      $fullname = mysqli_real_escape_string($conn,$_POST['fullname']);
+      $fullname = mysqli_real_escape_string($conn,$_POST['fulname']);
       $validate = true;
     }
 
-    if(empty($_POST['username'])){
+    if(empty($_POST['usename'])){
       $nameErr = "Please Enter Username";
       $validate = false;
     }
     else{
-      $username = mysqli_real_escape_string($conn,$_POST['username']);
+      $username = mysqli_real_escape_string($conn,$_POST['usename']);
       $validate = true;
     }
 
-    if(empty($_POST['email'])){
+    if(empty($_POST['mail'])){
       $emailErr = "Please Enter Email";
       $validate = false;
     }
     else{
-      $email = mysqli_real_escape_string($conn,$_POST['email']);
+      $email = mysqli_real_escape_string($conn,$_POST['mail']);
       $validate = true;
       if(!filter_var($email, FILTER_VALIDATE_EMAIL)){
         $emailErr = "Please Enter valid email";
@@ -142,12 +142,12 @@ session_start();
       }
     }
 
-    if(empty($_POST['phone'])){
+    if(empty($_POST['phoneno'])){
       $phoneErr = "Please Enter Phone Number";
       $validate = false;
     }
     else{
-      $phone = mysqli_real_escape_string($conn,$_POST['phone']);
+      $phone = mysqli_real_escape_string($conn,$_POST['phoneno']);
       $validate = true;
       if(strlen($phone) > 10 || strlen($phone) < 10 || !preg_match("/[0-9]/",$phone)){
         $phoneErr = "Please Enter valid Phone Number";
@@ -155,21 +155,21 @@ session_start();
       }
     }
 
-    if(empty($_POST['password'])){
+    if(empty($_POST['pasword'])){
       $passwordErr = "Please Enter Password";
       $validate = false;
     }
     else{
-      $password = mysqli_real_escape_string($conn,$_POST['password']);
+      $password = mysqli_real_escape_string($conn,$_POST['pasword']);
       $validate = true;
     }
 
-    if(empty($_POST['repassword'])){
+    if(empty($_POST['repasword'])){
       $repasswordErr = "Please Enter re-password";
       $validate = false;
     }
     else{
-      $repassword = mysqli_real_escape_string($conn,$_POST['repassword']);
+      $repassword = mysqli_real_escape_string($conn,$_POST['repasword']);
       $validate = true;
       if($password !== $repassword){
         $repasswordErr = "Password and Confirm Password don't match";
@@ -177,22 +177,22 @@ session_start();
       }
     }
 
-    if(empty($_POST['gender'])){
+    if(empty($_POST['Gender'])){
       $genderErr = "Please Select Gender";
       $validate = false;
     }
     else{
-      $gender = mysqli_real_escape_string($conn,$_POST['gender']);
+      $gender = mysqli_real_escape_string($conn,$_POST['Gender']);
       $validate = true;
     }
 
-    $city = $_POST['city'];
-    $dept = $_POST['Department'];
-    $type = 'employee';
+
+    $dept = $_POST['Departments'];
+   
   
  
     if($validate){
-      signup($fullname,$username,$email,$password,$phone,$repassword,$gender,$city,$dept,$type,$conn);
+      staffsign($fullname,$username,$email,$password,$phone,$repassword,$gender,$dept,$conn);
     }
   }
 
@@ -204,8 +204,8 @@ error_reporting(E_ALL);
   <!-- navbar -->
   <nav class="navbar header-nav navbar-expand-lg navbar-light bg-light">
     <div class="container-fluid">
-      <a class="navbar-brand" href="#">Student Regitration</a>
-      <a id="registers" href="student-login.php">Login</a>
+      <a class="navbar-brand" href="#">Staff Regitration</a>
+      <a id="registers" href="stafflog.php">Login</a>
       <a id="register" href="index.php">Home</a>
     </div>
   </nav>
@@ -222,78 +222,60 @@ error_reporting(E_ALL);
   
       <!--Name-->
       <div class="form-floating mb-3">
-        <input type="text" class="form-control" name="fullname" id="fullname" value="<?php echo $fullname; ?>"placeholder="Fullname">
+        <input type="text" class="form-control" name="fulname" id="fullname" value="<?php echo $fullname; ?>"placeholder="Fullname">
         <label for="Fullname">Fullname</label>
         <span class="error"><?php echo $nameErr; ?></span>
       </div>
   
       <!--username-->
       <div class="form-floating mb-3">
-        <input type="text" class="form-control" name="username" id="username" value="<?php echo $username; ?>"placeholder="Username">
+        <input type="text" class="form-control" name="usename" id="username" value="<?php echo $username; ?>"placeholder="Username">
         <label for="username">Username</label>
         <span class="error"><?php echo $nameErr; ?></span>
       </div>
   
       <!--Email id-->
       <div class="form-floating mb-3">
-        <input class="form-control" type="text" name="email" id="email" value="<?php echo $email; ?>" placeholder="Enter your email">
+        <input class="form-control" type="text" name="mail" id="email" value="<?php echo $email; ?>" placeholder="Enter your email">
         <label for="email">Email address</label>
         <span class="error"><?php echo $emailErr; ?></span>
       </div>
   
       <!--Phone No.-->
       <div class="form-floating mb-3">
-        <input class="form-control" type="tel" name="phone" id="phone" value="<?php echo $phone; ?>" placeholder="Enter your Phone no.">
+        <input class="form-control" type="tel" name="phoneno" id="phone" value="<?php echo $phone; ?>" placeholder="Enter your Phone no.">
         <label for="phone">Phone No.</label>
         <span class="error"><?php echo $phoneErr; ?></span>
       </div>
   
       <!--Password.-->
       <div class="form-floating mb-3">
-        <input class="form-control" type="password" name="password" id="password" value="<?php echo $password; ?>" placeholder="Enter your password">
+        <input class="form-control" type="password" name="pasword" id="password" value="<?php echo $password; ?>" placeholder="Enter your password">
         <label for="password">Password</label>
         <span class="error"><?php echo $passwordErr; ?></span>
       </div>
   
       <!--Confirm Password.-->
       <div class="form-floating mb-3">
-        <input class="form-control" type="password" name="repassword" id="confirmPassword" value="<?php echo $repassword ?>" placeholder="Re-Enter password">
+        <input class="form-control" type="password" name="repasword" id="confirmPassword" value="<?php echo $repassword ?>" placeholder="Re-Enter password">
         <label for="confirmPassword">Confirm Password</label>
         <span class="error"><?php echo $repasswordErr; ?></span>
       </div>
   
       <label for="gender">Gender:</label>
-      <input type="radio" id="gender" name="gender" <?php if(isset($gender)&&$gender=="Male") echo "checked" ?> value="Male">Male
-      <input type="radio" id="gender" name="gender" <?php if(isset($gender)&&$gender=="Female") echo "checked" ?> value="Female">Female
-      <input type="radio" id="gender" name="gender" <?php if(isset($gender)&&$gender=="Prefer Not to say") echo "checked" ?> value="Prefer Not to say">Prefer Not to say
+      <input type="radio" id="gender" name="Gender" <?php if(isset($gender)&&$gender=="Male") echo "checked" ?> value="Male">Male
+      <input type="radio" id="gender" name="Gender" <?php if(isset($gender)&&$gender=="Female") echo "checked" ?> value="Female">Female
+      <input type="radio" id="gender" name="Gender" <?php if(isset($gender)&&$gender=="Prefer Not to say") echo "checked" ?> value="Prefer Not to say">Prefer Not to say
       <span class="error"><?php echo $genderErr; ?></span>
       <br>
   
       <div class="row">
   
-      <div class="col-6">
-      <label for="city">City:</label>
-      <select id="city" name="city">
-        <option>Chennai</option>
-        <option>Madurai</option>
-        <option>Thanjavur</option>
-        <option>Thirunalveli</option>
-        <option>Kanniyakumari</option>
-        <option>Coimbatore</option>
-        <option>vellore</option>
-        <option>Karaikudi</option>
-        <option>Trichy</option>
-        <option>Mailadurai</option>
-        <option>Sengalpattu</option>
-        <option>mailadurai</option>
-        <option>Salem</option>
-        <option>Thuthukudi</option>
-      </select>
-      </div>
+      
   
       <div class="col-6">
       <label>Depart:</label>
-      <select name="Department" style="">
+      <select name="Departments" style="">
         <option>Mechanical</option>
         <option>IT</option>
         <option>Civil</option>
