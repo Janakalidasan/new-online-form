@@ -59,7 +59,7 @@ session_start();
     <!-- header -->
     <nav class="navbar header-nav navbar-expand-lg navbar-light bg-light">
         <div class="container-fluid">
-            <a class="navbar-brand" href="#">Student Login</a>
+            <a class="navbar-brand" href="#">Staff Login</a>
             <a id="registers" href="index.php">Home</a>
             <a id="register" href="staff-signup.php">Sign Up</a>
         </div>
@@ -129,7 +129,7 @@ session_start();
     <footer class="footer navbar navbar-expand-lg navbar-light bg-light" style="color:white;">
     <div>
       <p class="text-center">&copy; <?php echo date("Y"); ?> - Online Leave Application</p>
-      <!-- <p class="text-center">Developed By Yash Sojitra and Darshan Mamtani</p> -->
+     
     </div>
     </footer>
 </body>

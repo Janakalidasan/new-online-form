@@ -303,7 +303,7 @@ else{
   <footer class="footer navbar navbar-expand-lg navbar-light bg-light" style="color:white;">
     <div>
     <p class="text-center">&copy; <?php echo date("Y"); ?> - Online Leave Application</p>
-      <!-- <p class="text-center">Developed By Yash Sojitra and Darshan Mamtani</p> -->
+  
     </div>
   </footer>
 

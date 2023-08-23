@@ -209,7 +209,8 @@ error_reporting(E_ALL);
       <a id="register" href="index.php">Home</a>
     </div>
   </nav>
-<div class="row lsl">
+  <div class="container">
+  <div class="row lsl">
 <div class="col-lg-6 col-md-6 col-sm-12 small">
 <h1>Registration Form</h1>
 
@@ -301,6 +302,9 @@ error_reporting(E_ALL);
 <img src="img/hand.jpg" alt="Leave Image" class="img-fluid-1 img-fluid">
 </div>
 </div>
+  </div>
+
+
 
   
 
@@ -310,7 +314,7 @@ error_reporting(E_ALL);
   <footer class="footer navbar navbar-expand-lg navbar-light bg-light" style="color:white;">
   <div>
     <p class="text-center">&copy; <?php echo date("Y"); ?> - Online Leave Application</p>
-      <!-- <p class="text-center">Developed By Yash Sojitra and Darshan Mamtani</p> -->
+      
     </div>
   </footer>
 

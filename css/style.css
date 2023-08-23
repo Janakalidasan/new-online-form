@@ -39,6 +39,9 @@ body {
   border-radius: 20px;
   border:2px solid blue !important;
 }
+.les{
+  border-right: 2px solid;
+}
 #registers {
   margin-left: 68% !important;
   float: right;
@@ -143,16 +146,32 @@ textarea:focus {
   padding: 10px;
   bottom: 0;
   background: #404040 !important;
-  bottom: 0px;
+  bottom: -80px;
 }
 
 .footer > div {
   width: 100%;
 }
+.name {
+  text-align: center;
+  font-weight: bolder;
+  text-shadow: 0px 0px 1px #000;
+}
 
 @media (max-width: 572px) {
+  .name {
+    margin-top: 10px;
+    text-align: center;
+    font-weight: bolder;
+    text-shadow: 0px 0px 1px #000;
+}
+  .stft{
+    display: flex;
+    justify-content: center;
+  }
   .staff {
     margin-top: 0px !important;
+    margin-bottom: 10px;
 }
   body {
     width: 100vw;
@@ -192,5 +211,17 @@ input[type=radio], select {
 #registers{
   margin-left: 8% !important;
  
+}
+.les {
+  border-bottom: 2px solid;
+  border-right: none !important;
+  
+}
+.row {
+  margin-top: 10px;
+  margin-left: 0px !important;
+}
+form {
+  padding: 0px !important;
 }
 }

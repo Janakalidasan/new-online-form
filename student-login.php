@@ -76,7 +76,7 @@ session_start();
 
             <!-- leftComponent -->
             <div class="leftComponent col-md-5">
-                <img src="img/new-1.jpg" alt="Leave Image" class="img-fluid">
+                <img src="img/students.png" alt="Leave Image" class="img-fluid">
             </div>
             <!-- leftComponent ends -->
 
@@ -129,7 +129,7 @@ session_start();
     <footer class="footer navbar navbar-expand-lg navbar-light bg-light" style="color:white;">
     <div>
       <p class="text-center">&copy; <?php echo date("Y"); ?> - Online Leave Application</p>
-      <!-- <p class="text-center">Developed By Yash Sojitra and Darshan Mamtani</p> -->
+     
     </div>
     </footer>
 </body>
