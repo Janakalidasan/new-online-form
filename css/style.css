@@ -43,7 +43,7 @@ body {
   border-right: 2px solid;
 }
 #registers {
-  margin-left: 68% !important;
+  margin-left: 66% !important;
   float: right;
   padding: 5px 15px 5px 15px;
   text-decoration: none;
@@ -96,7 +96,7 @@ body {
   margin-top: 20px;
 }
 .leftComponent {
-  width: 48vw;
+  width: 55vw;
   height: 450px;
   margin: 0px;
 }
@@ -106,9 +106,10 @@ body {
 }
 
 .rightComponent {
-  width: 45vw;
-  height: 450px;
+  width: 35vw;
+  height: 212px;
   margin: 0px;
+  margin-top: -30px;
 }
 
 .rightComponent h3 {
@@ -157,7 +158,23 @@ textarea:focus {
   font-weight: bolder;
   text-shadow: 0px 0px 1px #000;
 }
+.newas{
 
+    justify-content: space-around;
+    display: flex;
+    margin-top: 10px;
+
+}
+.ens{
+  display: flex;
+  justify-content: end;
+}
+.wel {
+  text-align: center;
+  margin-top: 10px;
+  font-weight: bolder;
+  color: blue;
+}
 @media (max-width: 572px) {
   .name {
     margin-top: 10px;
@@ -185,11 +202,11 @@ textarea:focus {
     font-size: 1em;
     margin: 1px;
   }
-  .leftComponent,
-  .rightComponent {
+  .leftComponent, .rightComponent {
     width: 90vw;
     height: fit-content;
-  }
+    margin-top: 10px;
+}
 
   .rightComponent h3 {
     margin: 10px;
@@ -217,11 +234,14 @@ input[type=radio], select {
   border-right: none !important;
   
 }
-.row {
-  margin-top: 10px;
-  margin-left: 0px !important;
-}
+
 form {
   padding: 0px !important;
+}
+.dont{
+  font-size: 14px;
+}
+.mob-img{
+  display: none !important;
 }
 }

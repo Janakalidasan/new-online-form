@@ -79,7 +79,7 @@
             $_SESSION['sess_user'] = $name;
             $_SESSION['sess_eid'] = $eid['id'];
 
-            header("Location:student-login.php");
+            header("Location:index.php");
             exit;
         }
         else{

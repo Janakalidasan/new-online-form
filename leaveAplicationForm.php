@@ -109,7 +109,7 @@ else{
 
     input,
     textarea {
-      margin: 5px;
+      margin: 0px;
       font-size: 1.1em !important;
       outline: none;
     }
@@ -247,29 +247,19 @@ else{
         </label>
       </div>
       <div class="form-check">
-        <input class="form-check-input" name="absence[]" type="checkbox" value="Bereavement" id="Bereavement">
+        <input class="form-check-input" name="absence[]" type="checkbox" value=" Function" id="Function">
         <label class="form-check-label" for="Bereavement">
-          Bereavement
+         Function
         </label>
       </div>
       <div class="form-check">
-        <input class="form-check-input" name="absence[]" type="checkbox" value="Time off without pay" id="Time Off Without Pay">
+        <input class="form-check-input" name="absence[]" type="checkbox" value="Internship" id="Internship">
         <label class="form-check-label" for="Time Off Without Pay">
-          Time off without pay
+        Internship
         </label>
       </div>
-      <div class="form-check">
-        <input class="form-check-input" name="absence[]" type="checkbox" value="Maternity / Paternity" id="Maternity/Paternity">
-        <label class="form-check-label" for="Maternity/Paternity">
-          Maternity / Paternity
-        </label>
-      </div>
-      <div class="form-check">
-        <input class="form-check-input" name="absence[]" type="checkbox" value="Sabbatical" id="Sabbatical">
-        <label class="form-check-label" for="Sabbatical">
-          Sabbatical
-        </label>
-      </div>
+      
+      
       <div class="form-check">
         <input class="form-check-input" name="absence[]" type="checkbox" value="Other" id="Other">
         <label class="form-check-label" for="Other">

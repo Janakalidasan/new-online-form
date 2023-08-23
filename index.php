@@ -50,14 +50,6 @@ session_start();
         .log{
             font-weight:900;
         }
-        .staff{
-            margin-top:-75px ;
-        }
-        a {
-    color: #fff;
-    text-decoration: none;
-}
-
     </style>
 </head>
     
@@ -65,13 +57,13 @@ session_start();
 <body>
 
     <!-- header -->
-    <nav class="navbar header-nav navbar-expand-lg navbar-light bg-light">
+    <!-- <nav class="navbar header-nav navbar-expand-lg navbar-light bg-light">
         <div class="container-fluid">
-            <a class="navbar-brand" href="#">Online Leave Application</a>
-            
-            <!-- <a id="register" href="signup.php">Sign Up</a> -->
+            <a class="navbar-brand" href="#">Student Login</a>
+            <a id="registers" href="stafflog.php">Staff login</a>
+            <a id="register" href="signup.php">Sign Up</a>
         </div>
-    </nav>
+    </nav> -->
     <!-- header ends -->
 
 
@@ -79,45 +71,94 @@ session_start();
 
     <!-- body -->
     <div class="container-fluid">
+
         <div class="row">
             <!-- container and row divs for responsive -->
 
             <!-- leftComponent -->
-            <div class="leftComponent col-md-6 col-lg-6 col-sm-12 les">
-                <div>
-                    <h2 class="name">STAFF</h2>
-</div>
-<marquee behavior="scroll" direction="left">*Staff registration is now ready ,Please click on below staff login button and Register first, then login.</marquee>
-                <img src="img/new-1.jpg" alt="Leave Image" class="img-fluid">
-               <div class="stft">
-                <a href="../Online/stafflog.php"><button type="button" class="btn btn-primary staff">Staff Login</button></a>
-</div>
-            </div>
-
-
-
-            <div class="leftComponent col-md-6 col-lg-6 col-sm-12 less">
-         
-            <div>
-                    <h2 class="name">STUDENT</h2>
-</div>
-<marquee behavior="scroll" direction="left">*Student registration is now ready ,Please click on below student login button and Register first then login.</marquee>
+            <div class="leftComponent col-md-5">
                 <img src="img/students.png" alt="Leave Image" class="img-fluid">
-                <div class="stft">
-                <a href="../Online/student-login.php"><button type="button" class="btn btn-primary staff">Student Login</button></a>
-</div>
             </div>
-            
+            <!-- leftComponent ends -->
+
+
+            <!-- rightComponent -->
+            <div class="rightComponent col-md-5">
+
+                <h3> <b class="log">Welcome Back Student</b> </h3>
+                <hr>
+                <form method="POST" class="loginForm">
+                <div class="alert alert-danger" id="invalidMsg">
+                    <?php      
+                        if(isset($_POST['login'])){
+                            if($login == false)
+                                echo "<script type='text/javascript'>document.getElementById('invalidMsg').style.display = 'block';</script>";
+                                echo "Invalid Username or Password";
+                        }
+                        else
+                            echo "";
+                    ?>
+                    </div>
+                    <div class="mb-3">
+                        <input class="form-control" type="text" id="username" name="username" placeholder="Enter Username" required>
+                    </div>
+                    <div class="mb-3">
+                        <input class="form-control" type="password" id="password" name="password" placeholder="Enter Password"
+                            required>
+                    </div>
+                    <input type="submit" class="btn  cls" name="login" value="Log In">
+                
+
+
+                    <div class="row">
+                         <div class="col-6">
+                         <h6 style="font-weight:bold" class="dont"><a href="signup.php">Don't have a account?</a></h6>
+                    </div>
+                    <div class="col-6 ens">
+                   <h6 style="font-weight:bold" class="dont"><a href="stafflog.php">Are you staff?</a></h6>
+                    </div>
+                    </div>
+<!--                    
+                     <div class="row">
+                         <div class="col-6">
+                         <h6 style="font-weight:bold">Don't have a account?</h6>
+                    </div>
+                    <div class="col-6 ens">
+                    <a href="signup.php">Signup</a>
+                    </div>
+                    </div> -->
+
+<!-- <h6 class="or">or</h6> -->
+                    <!-- <div class="row">
+                         <div class="col-6">
+                         <h6 style="font-weight:bold">Are you staff?</h6>
+                    </div>
+                    <div class="col-6 ens">
+                    <a href="stafflog.php">Click here</a>
+                    </div>
+                    </div> -->
+                </form>
+        
+            </div>
+            <!-- rightComponent ends -->
         </div>
     </div>
-    
+    <!-- body ends -->
 
-    <footer class="footer navbar navbar-expand-lg navbar-light bg-light" style="color:white;">
-    <div>
-      <p class="text-center">&copy; <?php echo date("Y"); ?> - Online Leave Application</p>
-    
-    </div>
-    </footer>
+
+    <!-- <div class="content2">
+        <p class="heading lead text-start">
+            Simple yet effective software for leave management system
+        </p>
+        <p class="text-start">
+            Every organization may have different needs, so while picking on a leave management software, it will be
+            smart to choose a leave solution that provides the basic requirements while offering the flexibility to
+            customize the leave process. With greytHR managing employee leave is effortless with an all-rounded HR
+            management software.
+        </p>
+    </div> -->
+
+   
 </body>
 </html>
 

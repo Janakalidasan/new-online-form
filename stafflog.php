@@ -57,13 +57,13 @@ session_start();
 <body>
 
     <!-- header -->
-    <nav class="navbar header-nav navbar-expand-lg navbar-light bg-light">
+    <!-- <nav class="navbar header-nav navbar-expand-lg navbar-light bg-light">
         <div class="container-fluid">
             <a class="navbar-brand" href="#">Staff Login</a>
-            <a id="registers" href="index.php">Home</a>
+            <a id="registers" href="index.php">Student login</a>
             <a id="register" href="staff-signup.php">Sign Up</a>
         </div>
-    </nav>
+    </nav> -->
     <!-- header ends -->
 
 
@@ -71,6 +71,7 @@ session_start();
 
     <!-- body -->
     <div class="container-fluid">
+   
         <div class="row">
             <!-- container and row divs for responsive -->
 
@@ -84,7 +85,7 @@ session_start();
             <!-- rightComponent -->
             <div class="rightComponent col-md-5">
 
-                <h3> <b class="log">Login</b> </h3>
+                <h3> <b class="log">Welcome Back Staff</b> </h3>
                 <hr>
                 <form method="POST" class="loginForm">
                 <div class="alert alert-danger" id="invalidMsg">
@@ -106,7 +107,38 @@ session_start();
                             required>
                     </div>
                     <input type="submit" class="btn  cls" name="login" value="Log In">
-                </form>
+
+
+
+
+                    <div class="row">
+                         <div class="col-6">
+                         <h6 style="font-weight:bold" class="dont"><a href="staff-signup.php">Don't have a account?</a></h6>
+                    </div>
+                    <div class="col-6 ens">
+                   <h6 style="font-weight:bold" class="dont"><a href="index.php">Are you student?</a></h6>
+                    </div>
+                    </div>
+
+                    <!-- <div class="row">
+                         <div class="col-6">
+                         <h6 style="font-weight:bold">Don't have a account?</h6>
+                    </div>
+                    <div class="col-6 ens">
+                    <a href="staff-signup.php">Signup</a>
+                    </div>
+                    </div> -->
+
+<!-- <h6 class="or">or</h6> -->
+                    <!-- <div class="row">
+                         <div class="col-6">
+                         <h6 style="font-weight:bold">Are you student?</h6>
+                    </div>
+                    <div class="col-6 ens">
+                    <a href="index.php">Click here</a>
+                    </div>
+                    </div>
+                </form> -->
             </div>
             <!-- rightComponent ends -->
         </div>
@@ -126,12 +158,6 @@ session_start();
         </p>
     </div> -->
 
-    <footer class="footer navbar navbar-expand-lg navbar-light bg-light" style="color:white;">
-    <div>
-      <p class="text-center">&copy; <?php echo date("Y"); ?> - Online Leave Application</p>
-     
-    </div>
-    </footer>
 </body>
 </html>
 

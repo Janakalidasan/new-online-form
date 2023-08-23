@@ -202,17 +202,17 @@ error_reporting(E_ALL);
 
 
   <!-- navbar -->
-  <nav class="navbar header-nav navbar-expand-lg navbar-light bg-light">
+  <!-- <nav class="navbar header-nav navbar-expand-lg navbar-light bg-light">
     <div class="container-fluid">
       <a class="navbar-brand" href="#">Student Regitration</a>
-      <a id="registers" href="student-login.php">Login</a>
+      <a id="registers" href="index.php">Login</a>
       <a id="register" href="index.php">Home</a>
     </div>
-  </nav>
+  </nav> -->
   <div class="container">
   <div class="row lsl">
 <div class="col-lg-6 col-md-6 col-sm-12 small">
-<h1>Registration Form</h1>
+<h1>Student Registration Form</h1>
 
   <div class="container">
     <div class="alert alert-danger" id="err" role="alert">
@@ -312,12 +312,22 @@ error_reporting(E_ALL);
       <br>
   
       <input type="submit" name="submit" value="Submit" class="btn sls">
+
+
+      <div class="row">
+                         <div class="col-6">
+                         <h6 style="font-weight:bold" class="dont">Already have a account?</h6>
+                    </div>
+                    <div class="col-6 ens">
+                    <a href="index.php"><b>Login</b></a>
+                    </div>
+                    </div> 
     </form>
   </div>
 </div>
 <div class="col-lg-6 d-flex align-item-center">
 
-<img src="img/hand.jpg" alt="Leave Image" class="img-fluid-1 img-fluid">
+<img src="img/hand.jpg" alt="Leave Image" class="img-fluid-1 img-fluid mob-img">
 </div>
 </div>
 </div>
@@ -327,13 +337,8 @@ error_reporting(E_ALL);
 
 
 
-  <!--Footer-->
-  <footer class="footer navbar navbar-expand-lg navbar-light bg-light" style="color:white;">
-  <div>
-    <p class="text-center">&copy; <?php echo date("Y"); ?> - Online Leave Application</p>
-      <!-- <p class="text-center">Developed By Jana</p> -->
-    </div>
-  </footer>
+  
+  
 
 
 </body>
