@@ -72,7 +72,7 @@ session_start();
     <!-- body -->
     <div class="container-fluid">
 
-        <div class="row">
+        <div class="row" id="sss">
             <!-- container and row divs for responsive -->
 
             <!-- leftComponent -->
